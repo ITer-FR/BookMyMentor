@@ -9,6 +9,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Liste des cibles possible pour le mentor (ex: junior - reconverti...)
+ * 
  * @ApiResource()
  * @ORM\Entity(repositoryClass=TargetRepository::class)
  */

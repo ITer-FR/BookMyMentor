@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Liste des mentors
  * @ApiResource()
  * @ORM\Entity(repositoryClass=MentorRepository::class)
  */
@@ -22,11 +23,13 @@ class Mentor
     private $id;
 
     /**
+     * Représente : Pourquoi souhaites-tu aider ?
      * @ORM\Column(type="text", nullable=true)
      */
     private $why_help;
 
     /**
+     * Représente : Que signifie, pour toi, être mentor ?
      * @ORM\Column(type="text", nullable=true)
      */
     private $why_mentor;

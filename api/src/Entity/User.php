@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * Liste des utilisateurs
  * @ApiResource()
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
@@ -22,6 +23,7 @@ class User implements UserInterface
     private $id;
 
     /**
+     * Email de l'utilisateur
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -38,51 +40,61 @@ class User implements UserInterface
     private $password;
 
     /**
+     * Prénom de l'utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $first_name;
 
     /**
+     * Nom de l'utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $last_name;
 
     /**
+     * Téléphone de l'utilisateur
      * @ORM\Column(type="integer", nullable=true)
      */
     private $phone;
 
     /**
+     * Lien du profil github de l'utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $github;
 
     /**
+     * Lien du profil linkedin de l'utilisateur
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $linkedin;
 
     /**
+     * Lien du portfolio de l'utilisateur
      * @ORM\Column(type="string", length=512, nullable=true)
      */
     private $portfolio;
 
     /**
+     * Texte biographique de l'utilisateur
      * @ORM\Column(type="text", nullable=true)
      */
     private $bio;
 
     /**
+     * Lien de l'image de l'utilisateur
      * @ORM\Column(type="string", length=512, nullable=true)
      */
     private $avatar;
 
     /**
+     * Texte décrivant le parcours de l'utilisateur
      * @ORM\Column(type="text", nullable=true)
      */
     private $route;
 
     /**
+     * Ouverture au reseaux sociaux (bool)
      * @ORM\Column(type="boolean")
      */
     private $open_social;
