@@ -1,0 +1,48 @@
+# api/fixtures/fixture.yaml
+App\Entity\Format:
+    format_1:
+        name: Visio
+        createdAt: <dateTime()>
+    format_2:
+        name: Email
+        createdAt: <dateTime()>
+    format_3:
+        name: Téléphone
+        createdAt: <dateTime()>
+    format_4:
+        name: Pair-programming
+        createdAt: <dateTime()>
+
+App\Entity\Duration:
+    duration_{1}:
+        time: Court terme
+        createdAt: <dateTime()>
+    duration_{2}:
+        time: Moyen terme
+        createdAt: <dateTime()>
+    duration_{3}:
+        time: Long terme
+        createdAt: <dateTime()>
+
+App\Entity\StackTech:
+    stacktech_{1}:
+        name: Php
+        createdAt: <dateTime()>
+    stacktech_{2}:
+        name: Javascript
+        createdAt: <dateTime()>
+    stacktech_{3}:
+        name: React
+        createdAt: <dateTime()>
+    stacktech_{4}:
+        name: Symfony
+        createdAt: <dateTime()>
+    stacktech_{5}:
+        name: Html
+        createdAt: <dateTime()>
+    stacktech_{6}:
+        name: Css
+        createdAt: <dateTime()>
+    stacktech_{7}:
+        name: Css
+        createdAt: <dateTime()>
