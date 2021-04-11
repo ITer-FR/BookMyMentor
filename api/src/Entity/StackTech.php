@@ -9,6 +9,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Liste des compétences techniques (ex : javascript - php ...)
+ * 
  * @ApiResource()
  * @ORM\Entity(repositoryClass=StackTechRepository::class)
  */
@@ -22,6 +24,7 @@ class StackTech
     private $id;
 
     /**
+     * Nom de la compétence
      * @ORM\Column(type="string", length=255)
      */
     private $name;

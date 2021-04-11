@@ -9,6 +9,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Liste des compétences générales
+ * 
  * @ApiResource()
  * @ORM\Entity(repositoryClass=SoftSkillRepository::class)
  */
@@ -22,6 +24,8 @@ class SoftSkill
     private $id;
 
     /**
+     * Nom de la compétence
+     * 
      * @ORM\Column(type="string", length=255)
      */
     private $name;

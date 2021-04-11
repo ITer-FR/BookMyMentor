@@ -9,6 +9,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Liste des durées de mentoring possbile (Court terme- Moyen terme - Long terme)
+ * 
  * @ApiResource()
  * @ORM\Entity(repositoryClass=DurationRepository::class)
  */
@@ -22,6 +24,7 @@ class Duration
     private $id;
 
     /**
+     * Nom de la durée
      * @ORM\Column(type="string", length=255)
      */
     private $time;

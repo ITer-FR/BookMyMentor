@@ -9,6 +9,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Liste des formats de mentoring possibles (ex : visio - pairprogramming ...)
+ * 
  * @ApiResource()
  * @ORM\Entity(repositoryClass=FormatRepository::class)
  */
@@ -22,6 +24,7 @@ class Format
     private $id;
 
     /**
+     * Nom du format
      * @ORM\Column(type="string", length=255)
      */
     private $name;
