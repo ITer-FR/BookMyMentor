@@ -24,6 +24,23 @@ App\Entity\Duration:
         time: Long terme
         createdAt: <dateTime()>
 
+App\Entity\Target:
+    target_{1}:
+        name: Dev Junior
+        createdAt: <dateTime()>
+    target_{2}:
+        name: Tous profils
+        createdAt: <dateTime()>
+    target_{3}:
+        name: Reconvertion
+        createdAt: <dateTime()>
+    target_{4}:
+        name: Freelance
+        createdAt: <dateTime()>
+    target_{5}:
+        name: Jeunes diplomés
+        createdAt: <dateTime()>
+
 App\Entity\StackTech:
     stacktech_{1}:
         name: Php
@@ -44,5 +61,118 @@ App\Entity\StackTech:
         name: Css
         createdAt: <dateTime()>
     stacktech_{7}:
-        name: Css
+        name: Laravel
+        createdAt: <dateTime()>
+    stacktech_{8}:
+        name: VueJS
+        createdAt: <dateTime()>
+    stacktech_{9}:
+        name: MySQL
+        createdAt: <dateTime()>
+    stacktech_{23}:
+        name: Front-End
+        createdAt: <dateTime()>
+    stacktech_{22}:
+        name: Back-End
+        createdAt: <dateTime()>
+    stacktech_{10}:
+        name: API
+        createdAt: <dateTime()>
+    stacktech_{11}:
+        name: API
+        createdAt: <dateTime()>
+    stacktech_{12}:
+        name: Big-data
+        createdAt: <dateTime()>
+    stacktech_{13}:
+        name: C#
+        createdAt: <dateTime()>
+    stacktech_{24}:
+        name: Python
+        createdAt: <dateTime()>
+    stacktech_{14}:
+        name: Docker
+        createdAt: <dateTime()>
+    stacktech_{15}:
+        name: Kubemetes
+        createdAt: <dateTime()>
+    stacktech_{25}:
+        name: Kubemetes
+        createdAt: <dateTime()>
+    stacktech_{26}:
+        name: Javascript
+        createdAt: <dateTime()>
+    stacktech_{16}:
+        name: Dev Ops
+        createdAt: <dateTime()>
+    stacktech_{17}:
+        name: Aws
+        createdAt: <dateTime()>
+    stacktech_{18}:
+        name: Linux
+        createdAt: <dateTime()>
+    stacktech_{19}:
+        name: Back-office
+        createdAt: <dateTime()>
+    stacktech_{27}:
+        name: TDD
+        createdAt: <dateTime()>
+    stacktech_{20}:
+        name: Clean Code
+        createdAt: <dateTime()>
+    stacktech_{21}:
+        name: Go
+        createdAt: <dateTime()>
+
+App\Entity\SoftSkill:
+    softskill_{1}:
+        name: Devenir plus sur de soit
+        createdAt: <dateTime()>
+    softskill_{2}:
+        name: Prendre des décisions dans des contextes difficiles
+        createdAt: <dateTime()>
+    softskill_{3}:
+        name: Travailler en équipe
+        createdAt: <dateTime()>
+    softskill_{4}:
+        name: Apprendre à apprendre correctement
+        createdAt: <dateTime()>
+    softskill_{5}:
+        name: Review de profile linkedin
+        createdAt: <dateTime()>
+    softskill_{6}:
+        name: Amélioration du CV
+        createdAt: <dateTime()>
+    softskill_{7}:
+        name: Qualité dans le développement logiciel
+        createdAt: <dateTime()>
+    softskill_{8}:
+        name: Posture professionnelle
+        createdAt: <dateTime()>
+    softskill_{9}:
+        name: Simulation d'entretien technique
+        createdAt: <dateTime()>
+    softskill_{10}:
+        name: Conseils de carrière
+        createdAt: <dateTime()>
+    softskill_{11}:
+        name: Dédramatisation
+        createdAt: <dateTime()>
+    softskill_{12}:
+        name: Compréhension du besoin client
+        createdAt: <dateTime()>
+    softskill_{13}:
+        name: Revue de code
+        createdAt: <dateTime()>
+    softskill_{14}:
+        name: Donner/recevoir des feedbacks
+        createdAt: <dateTime()>
+    softskill_{15}:
+        name: Recherche de poste (emploi)
+        createdAt: <dateTime()>
+    softskill_{16}:
+        name: Gestion de projet
+        createdAt: <dateTime()>
+    softskill_{17}:
+        name: Management d'équipe IT
         createdAt: <dateTime()>
