@@ -1,32 +1,20 @@
 // import App from "next/app";
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import type { AppProps /*, AppContext */ } from "next/app";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import { ThemeProvider } from 'styled-components';
+import type { AppProps /*, AppContext */ } from 'next/app';
+import 'normalize.css/normalize.css';
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
+import { lightTheme } from '../theme/appTheme';
+import GlobalStyle from '../theme/globalStyle';
 
 function MyApp({ Component, pageProps }: AppProps) {
-    return (
-        <>
-            <GlobalStyle />
-            <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-            </ThemeProvider>
-        </>
-    );
+  return (
+    <>
+      <ThemeProvider theme={lightTheme}>
+        <Component {...pageProps} />
+        <GlobalStyle />
+      </ThemeProvider>
+    </>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for
