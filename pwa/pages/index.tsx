@@ -1,14 +1,18 @@
-import Head from "next/head";
+import Head from 'next/head';
+import styled from 'styled-components';
 
-const Welcome = () => (
+const Title = styled.h1`
+  font-size: 50px;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+export default function Home() {
+  return (
     <>
-        <Head>
-            <title>BookMyMentor</title>
-        </Head>
-
-        <div>
-            <h1>Bienvenue sur Book My Mentor</h1>
-        </div>
+      <Head>
+        <title>BookMyMentor</title>
+      </Head>
+      <Title>BookMyMentor application</Title>
     </>
-);
-export default Welcome;
+  );
+}
