@@ -21,6 +21,16 @@ class Mentor
      * @ORM\Column(type="integer")
      */
     private $id;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     /**
      * Représente : Pourquoi souhaites-tu aider ?
@@ -38,16 +48,6 @@ class Mentor
      * @ORM\ManyToMany(targetEntity=SoftSkill::class, inversedBy="mentors")
      */
     private $soft_skills;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=StackTech::class, inversedBy="mentors")
