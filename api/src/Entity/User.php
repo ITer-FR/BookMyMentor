@@ -109,6 +109,11 @@ class User implements UserInterface
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Mentor::class, inversedBy="userId", cascade={"persist", "remove"})
+     */
+    private $mentor;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -330,6 +335,18 @@ class User implements UserInterface
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getMentor(): ?Mentor
+    {
+        return $this->mentor;
+    }
+
+    public function setMentor(?Mentor $mentor): self
+    {
+        $this->mentor = $mentor;
 
         return $this;
     }

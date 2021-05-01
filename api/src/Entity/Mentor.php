@@ -69,6 +69,11 @@ class Mentor
      */
     private $formats;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="mentor", cascade={"persist", "remove"})
+     */
+    private $userId;
+
     public function __construct()
     {
         $this->soft_skills = new ArrayCollection();
@@ -247,6 +252,28 @@ class Mentor
     public function removeFormat(Format $format): self
     {
         $this->formats->removeElement($format);
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($userId === null && $this->userId !== null) {
+            $this->userId->setMentor(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($userId !== null && $userId->getMentor() !== $this) {
+            $userId->setMentor($this);
+        }
+
+        $this->userId = $userId;
 
         return $this;
     }
