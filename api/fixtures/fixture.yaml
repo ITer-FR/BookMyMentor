@@ -176,3 +176,33 @@ App\Entity\SoftSkill:
     softskill_{17}:
         name: Management d'équipe IT
         createdAt: <dateTime()>
+
+App\Entity\User:
+    user_{1..9}:
+        email: <email()>
+        roles: [ROLE_USER]
+        password: test
+        first_name: <firstName()>
+        last_name: <lastName()>
+        phone: "06<numberBetween(0,99)><numberBetween(0,99)><numberBetween(0,99)><numberBetween(0,99)>"
+        github: https://github.com/ITer-FR/BookMyMentor
+        linkedin: https://www.linkedin.com/company/iters-family/
+        portfolio: ITers.io
+        open_social: true
+        mentor: '@mentor*'
+        createdAt: <dateTime()>
+        bio: <text()>
+        avatar: https://cdn4.iconfinder.com/data/icons/profession-avatar-5/64/29-programmer-512.png
+        route: <text()>
+
+App\Entity\Mentor:
+    mentor_{1..10}:
+        createdAt: <dateTime()>
+        why_help: <text()>
+        why_mentor: <text()>
+        soft_skills: '4x @softskill*'
+        stack_techs: '5x @stacktech*'
+        durations: '3x @duration*'
+        targets: '2x @target*'
+        formats: '3x @format*'
+        userId: '@user*'

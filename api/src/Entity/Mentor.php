@@ -21,6 +21,16 @@ class Mentor
      * @ORM\Column(type="integer")
      */
     private $id;
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     /**
      * Représente : Pourquoi souhaites-tu aider ?
@@ -38,16 +48,6 @@ class Mentor
      * @ORM\ManyToMany(targetEntity=SoftSkill::class, inversedBy="mentors")
      */
     private $soft_skills;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=StackTech::class, inversedBy="mentors")
@@ -68,6 +68,11 @@ class Mentor
      * @ORM\ManyToMany(targetEntity=Format::class, inversedBy="mentors")
      */
     private $formats;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="mentor", cascade={"persist", "remove"})
+     */
+    private $userId;
 
     public function __construct()
     {
@@ -247,6 +252,28 @@ class Mentor
     public function removeFormat(Format $format): self
     {
         $this->formats->removeElement($format);
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($userId === null && $this->userId !== null) {
+            $this->userId->setMentor(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($userId !== null && $userId->getMentor() !== $this) {
+            $userId->setMentor($this);
+        }
+
+        $this->userId = $userId;
 
         return $this;
     }
