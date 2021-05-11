@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Header from '../components/Header';
-import MentorsList from '../components/MentorsList';
+import MentorsList from '../components/mentor-list/MentorsList';
 
 export default function Home() {
   return (

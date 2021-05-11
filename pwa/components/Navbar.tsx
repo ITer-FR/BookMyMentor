@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 const Container = styled.div``;
 const Nav = styled.nav``;
@@ -36,7 +37,7 @@ const Bars = styled(FontAwesomeIcon)`
   font-size: 2.4rem;
 `;
 
-const Navbar = () => (
+const Navbar: React.FC = () => (
   <Container>
     <Nav>
       <Menu>

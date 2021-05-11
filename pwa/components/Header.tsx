@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import styled from 'styled-components';
 
 import NavBar from './Navbar';
@@ -16,7 +17,7 @@ const Title = styled.h1``;
 
 const LinkLogo = styled.a``;
 
-const Header = () => (
+const Header: React.FC = () => (
   <Container>
     <Link href="/">
       <LinkLogo>

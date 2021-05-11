@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-import MentorCard from './MentorCard';
-import { MentorCardArrayCollection } from '../types/Collection';
+import MentorCard from '../mentor-card/MentorCard';
+import { MentorCardArrayCollection } from '../../types/Collection';
+import MentorDivider from './MentorDivider';
+import React from 'react';
 
 const mentorsData: MentorCardArrayCollection = [
   {
@@ -81,6 +83,7 @@ const Topic = styled.p`
 `;
 
 const ListWrapper = styled.ul`
+  position: relative;
   max-width: 140rem;
   margin: 0 auto;
   @media screen and (min-width: 768px) {
@@ -88,21 +91,17 @@ const ListWrapper = styled.ul`
     flex-wrap: wrap;
   }
 `;
-const MentorsList = () => (
+
+const MentorsList: React.FC = () => (
   <Box>
     <Topic>{mentorsData.length} mentors disponibles pour vous aider</Topic>
     <ListWrapper>
       {mentorsData &&
         mentorsData.map(({ id, imageSource, name, job, text, time }, index) => (
-          <MentorCard
-            index={index}
-            key={id}
-            imageSource={imageSource}
-            name={name}
-            job={job}
-            text={text}
-            time={time}
-          />
+          <React.Fragment key={id}>
+            <MentorCard imageSource={imageSource} name={name} job={job} text={text} time={time} />
+            <MentorDivider index={index} />
+          </React.Fragment>
         ))}
     </ListWrapper>
   </Box>
