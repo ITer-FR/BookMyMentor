@@ -44,7 +44,9 @@ const MentorsList: React.FC = () => {
           data['hydra:member'].map((mentorData, index) => {
             console.log(mentorData);
             const id = mentorData['@id'];
-            const imageSource = mentorData.userId?.avatar;
+            const imageSource =
+              mentorData.userId?.avatar ||
+              'https://cdn2.iconfinder.com/data/icons/unigrid-human-vol-2/57/011_user_profile_avatar_man_boy_silhoette-512.png';
             const name = mentorData.userId?.first_name || 'DB bug A Fix';
             const job = 'Pas de job database';
             const text = mentorData.userId?.bio || 'DB bug A Fix';
