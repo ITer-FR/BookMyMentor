@@ -7,10 +7,19 @@ use App\Repository\MentorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Liste des mentors
- * @ApiResource()
+ * @ApiResource(
+ *      normalizationContext={"groups"={"GetAllMentors"}},
+ *      collectionOperations={"get"},
+ * itemOperations={
+ *      "get"={
+ *          "normalization_context"={"groups"={"GetOneMentor"}}
+ *   }
+ *  }
+ * )
  * @ORM\Entity(repositoryClass=MentorRepository::class)
  */
 class Mentor
@@ -24,6 +33,7 @@ class Mentor
     
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"GetOneMentor"})
      */
     private $createdAt;
 
@@ -35,42 +45,50 @@ class Mentor
     /**
      * Représente : Pourquoi souhaites-tu aider ?
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $why_help;
 
     /**
      * Représente : Que signifie, pour toi, être mentor ?
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"GetOneMentor"})
      */
     private $why_mentor;
 
     /**
      * @ORM\ManyToMany(targetEntity=SoftSkill::class, inversedBy="mentors")
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $soft_skills;
 
     /**
      * @ORM\ManyToMany(targetEntity=StackTech::class, inversedBy="mentors")
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $stack_techs;
 
     /**
      * @ORM\ManyToMany(targetEntity=Duration::class, inversedBy="mentors")
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $durations;
 
     /**
      * @ORM\ManyToMany(targetEntity=Target::class, inversedBy="mentors")
+     * @Groups({"GetOneMentor"})
      */
     private $targets;
 
     /**
      * @ORM\ManyToMany(targetEntity=Format::class, inversedBy="mentors")
+     * @Groups({"GetOneMentor"})
      */
     private $formats;
 
     /**
      * @ORM\OneToOne(targetEntity=User::class, mappedBy="mentor", cascade={"persist", "remove"})
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $userId;
 

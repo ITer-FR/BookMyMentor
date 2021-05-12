@@ -7,6 +7,7 @@ use App\Repository\DurationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Liste des durées de mentoring possbile (Court terme- Moyen terme - Long terme)
@@ -26,6 +27,7 @@ class Duration
     /**
      * Nom de la durée
      * @ORM\Column(type="string", length=255)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $time;
 

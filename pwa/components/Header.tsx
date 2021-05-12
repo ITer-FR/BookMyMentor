@@ -17,6 +17,7 @@ const Title = styled.h1``;
 
 const LinkLogo = styled.a``;
 
+
 const BlackOrGreyPath = styled.path`
   fill: ${({ theme }) => (theme.colors.tertiary === '#1E1F2F' ? theme.colors.primary : 'black')};
 `;
