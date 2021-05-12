@@ -14,12 +14,13 @@ const Menu = styled.ul`
 const MenuItem = styled.li``;
 
 const MenuItemLink = styled.a`
-  color: black;
+  color: ${({ theme }) => (theme.colors.tertiary === '#1E1F2F' ? theme.colors.primary : 'black')};
   margin-right: 0.5rem;
   font-size: 1.2rem;
   @media screen and (min-width: 768px) {
     ${MenuItem}:not(:first-child) & {
-      border-left: 1px solid black;
+      border-left: 1px solid
+        ${({ theme }) => (theme.colors.tertiary === '#1E1F2F' ? theme.colors.primary : 'black')};
       padding-left: 0.5rem;
     }
   }

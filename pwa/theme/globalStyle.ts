@@ -12,7 +12,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: Roboto, sans-serif;
     font-size: ${({ theme }) => theme.font_size.m};
-    background-color: ${({ theme }) => theme.colors.tertiary}
+    background-color: ${({ theme }) => theme.colors.tertiary};
+    color: ${({ theme }) => (theme.colors.tertiary === '#1E1F2F' ? theme.colors.primary : 'black')};
   }
   button {
     cursor: pointer;
