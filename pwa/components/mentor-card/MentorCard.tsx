@@ -68,13 +68,19 @@ const Name = styled.h2`
 const Job = styled.p`
   color: ${({ theme }) => theme.colors.secondary};
   font-style: italic;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 `;
 
 const Description = styled.p`
+  display: -webkit-box;
   font-style: italic;
   margin-bottom: 1.4rem;
   color: ${({ theme }) => theme.colors.primary};
+  height: 5.6rem;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Mentor: React.FC<MentorCardCollection> = ({
@@ -97,8 +103,11 @@ const Mentor: React.FC<MentorCardCollection> = ({
     <Name className="Mentor__name">{name}</Name>
     <Job className="Mentor__job">{job}</Job>
     <Description className="Mentor__text">{text}</Description>
-    <MentorQuality quality={stack} typeOfQuality={'Stack Teck'} />
-    <MentorQuality quality={soft_skills} typeOfQuality={'Soft skills'} />
+    <MentorQuality quality={stack} typeOfQuality={`${'Stack Tech ' + '(' + stack.length + ')'}`} />
+    <MentorQuality
+      quality={soft_skills}
+      typeOfQuality={`${'Soft skills ' + '(' + soft_skills.length + ')'}`}
+    />
     <MentorTime time={time} />
   </Item>
 );
