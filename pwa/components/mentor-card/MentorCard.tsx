@@ -77,7 +77,15 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-const Mentor: React.FC<MentorCardCollection> = ({ imageSource, name, job, text, time }) => (
+const Mentor: React.FC<MentorCardCollection> = ({
+  imageSource,
+  name,
+  job,
+  text,
+  time,
+  stack,
+  soft_skills,
+}) => (
   <Item>
     <Image
       className="Mentor__image"
@@ -89,8 +97,8 @@ const Mentor: React.FC<MentorCardCollection> = ({ imageSource, name, job, text, 
     <Name className="Mentor__name">{name}</Name>
     <Job className="Mentor__job">{job}</Job>
     <Description className="Mentor__text">{text}</Description>
-    <MentorQuality quality={'Javascript - Php - Html'} typeOfQuality={'Stack Teck'} />
-    <MentorQuality quality={'Javascript - Php - Html'} typeOfQuality={'Soft skills'} />
+    <MentorQuality quality={stack} typeOfQuality={'Stack Teck'} />
+    <MentorQuality quality={soft_skills} typeOfQuality={'Soft skills'} />
     <MentorTime time={time} />
   </Item>
 );

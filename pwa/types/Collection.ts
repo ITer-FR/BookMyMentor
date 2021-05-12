@@ -12,6 +12,11 @@ export interface PagedCollection<T> {
   'hydra:totalItems'?: number;
 }
 
+export type QualityMentorType = {
+  '@id': string;
+  '@type': string;
+  name: string;
+};
 export interface MentorCardCollection {
   index?: number;
   id?: string;
@@ -20,6 +25,8 @@ export interface MentorCardCollection {
   job: string;
   text: string;
   time: string;
+  stack: QualityMentorType[];
+  soft_skills: QualityMentorType[];
 }
 
 export type MentorCardArrayCollection = MentorCardCollection[];

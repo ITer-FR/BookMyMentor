@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { QualityMentorType } from '../../types/Collection';
 
 type mentorQualityTypes = {
   typeOfQuality: string;
-  quality: string;
+  quality: QualityMentorType[];
 };
 
 const QualityWrapper = styled.div`
@@ -27,7 +28,8 @@ const QualityDescription = styled.span``;
 const MentorQuality: React.FC<mentorQualityTypes> = ({ typeOfQuality, quality }) => (
   <QualityWrapper>
     <QualityTitle>{typeOfQuality}</QualityTitle>
-    <QualityDescription>{quality}</QualityDescription>
+    {quality &&
+      quality.map((data) => <QualityDescription key={data['@id']}>{data.name}</QualityDescription>)}
   </QualityWrapper>
 );
 
