@@ -7,6 +7,7 @@ use App\Repository\StackTechRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Liste des compétences techniques (ex : javascript - php ...)
@@ -26,6 +27,7 @@ class StackTech
     /**
      * Nom de la compétence
      * @ORM\Column(type="string", length=255)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $name;
 

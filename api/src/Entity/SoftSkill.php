@@ -7,11 +7,14 @@ use App\Repository\SoftSkillRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Liste des compétences générales
  * 
- * @ApiResource()
+ * @ApiResource(
+ *  
+ * )
  * @ORM\Entity(repositoryClass=SoftSkillRepository::class)
  */
 class SoftSkill
@@ -27,6 +30,7 @@ class SoftSkill
      * Nom de la compétence
      * 
      * @ORM\Column(type="string", length=255)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $name;
 

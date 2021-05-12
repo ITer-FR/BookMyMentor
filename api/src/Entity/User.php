@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -42,65 +43,76 @@ class User implements UserInterface
     /**
      * Prénom de l'utilisateur
      * @ORM\Column(type="string", length=255)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $first_name;
 
     /**
      * Nom de l'utilisateur
      * @ORM\Column(type="string", length=255)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $last_name;
 
     /**
      * Téléphone de l'utilisateur
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"GetOneMentor"})
      */
     private $phone;
 
     /**
      * Lien du profil github de l'utilisateur
      * @ORM\Column(type="string", length=255)
+     * @Groups({"GetOneMentor"})
      */
     private $github;
 
     /**
      * Lien du profil linkedin de l'utilisateur
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"GetOneMentor"})
      */
     private $linkedin;
 
     /**
      * Lien du portfolio de l'utilisateur
      * @ORM\Column(type="string", length=512, nullable=true)
+     * @Groups({"GetOneMentor"})
      */
     private $portfolio;
 
     /**
      * Texte biographique de l'utilisateur
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $bio;
 
     /**
      * Lien de l'image de l'utilisateur
      * @ORM\Column(type="string", length=512, nullable=true)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $avatar;
 
     /**
      * Texte décrivant le parcours de l'utilisateur
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"GetOneMentor"})
      */
     private $route;
 
     /**
      * Ouverture au reseaux sociaux (bool)
      * @ORM\Column(type="boolean")
+     * @Groups({"GetOneMentor"})
      */
     private $open_social;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"GetOneMentor"})
      */
     private $createdAt;
 
