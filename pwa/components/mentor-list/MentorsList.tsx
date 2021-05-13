@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import MentorCard from '../mentor-card/MentorCard';
 import MentorDivider from './MentorDivider';
 import React from 'react';
-import useRequest from '../../hooks/useRequest';
+import useRequest from '../../hooks/useGetRequest';
 
 const Box = styled.div`
   padding: 1rem;
@@ -28,12 +28,11 @@ const ListWrapper = styled.ul`
 const MentorsList: React.FC = () => {
   const { data, error } = useRequest('https://localhost/mentors?page=1');
   if (data) {
-    const id = data['hydra:member'][0]['@id'];
-    console.log(id);
-    // { @id, userId.avatar, userId.first_name, job = 'developpeyr', userId.bio,  @durations[0].time}
+    console.log(data);
   }
   if (error) return <p>An error has occured</p>;
   if (!data) return <div>Loading...</div>;
+
   return (
     <Box>
       <Topic>
@@ -42,7 +41,6 @@ const MentorsList: React.FC = () => {
       <ListWrapper>
         {data['hydra:member'] &&
           data['hydra:member'].map((mentorData, index) => {
-            console.log(mentorData);
             const id = mentorData['@id'];
             const imageSource =
               mentorData.userId?.avatar ||
