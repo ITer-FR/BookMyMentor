@@ -126,6 +126,12 @@ class User implements UserInterface
      */
     private $mentor;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"GetOneMentor", "GetAllMentors"})
+     */
+    private $job;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -359,6 +365,18 @@ class User implements UserInterface
     public function setMentor(?Mentor $mentor): self
     {
         $this->mentor = $mentor;
+
+        return $this;
+    }
+
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    public function setJob(?string $job): self
+    {
+        $this->job = $job;
 
         return $this;
     }

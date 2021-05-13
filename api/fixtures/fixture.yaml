@@ -190,6 +190,7 @@ App\Entity\User:
         portfolio: ITers.io
         open_social: true
         mentor: '@mentor*'
+        job: 'Developpeur web senior'
         createdAt: <dateTime()>
         bio: <text()>
         avatar: https://cdn4.iconfinder.com/data/icons/profession-avatar-5/64/29-programmer-512.png
@@ -205,4 +206,4 @@ App\Entity\Mentor:
         durations: '3x @duration*'
         targets: '2x @target*'
         formats: '3x @format*'
-        userId: '@user*'
+        userId : '@user*'
