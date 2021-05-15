@@ -17,7 +17,6 @@ const Topic = styled.p`
 
 const ListWrapper = styled.ul`
   position: relative;
-  max-width: 140rem;
   margin: 0 auto;
   @media screen and (min-width: 768px) {
     display: flex;
