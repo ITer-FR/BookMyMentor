@@ -1,20 +1,9 @@
 // import App from "next/app";
-import { ThemeProvider } from 'styled-components';
 import type { AppProps /*, AppContext */ } from 'next/app';
 import 'normalize.css/normalize.css';
 
-import { lightTheme } from '../theme/appTheme';
-import GlobalStyle from '../theme/globalStyle';
-
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <ThemeProvider theme={lightTheme}>
-        <Component {...pageProps} />
-        <GlobalStyle />
-      </ThemeProvider>
-    </>
-  );
+  return <Component {...pageProps} />;
 }
 
 // Only uncomment this method if you have blocking data requirements for

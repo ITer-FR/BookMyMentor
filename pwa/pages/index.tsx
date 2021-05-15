@@ -1,15 +1,10 @@
-import Head from 'next/head';
-import Header from '../components/Header';
+import Layout from '../components/Layout';
 import MentorsList from '../components/mentor-list/MentorsList';
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>BookMyMentor</title>
-      </Head>
-      <Header />
+    <Layout>
       <MentorsList />
-    </>
+    </Layout>
   );
 }
