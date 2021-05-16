@@ -21,6 +21,7 @@ class StackTech
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $id;
 
