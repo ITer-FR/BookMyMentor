@@ -190,7 +190,7 @@ App\Entity\User:
         portfolio: ITers.io
         open_social: true
         # mentor: '@mentor*'
-        job: Développeur web sénior
+        job: <jobTitle()>
         createdAt: <dateTime()>
         bio: <text()>
         avatar: https://cdn4.iconfinder.com/data/icons/profession-avatar-5/64/29-programmer-512.png
