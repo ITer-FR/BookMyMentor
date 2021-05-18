@@ -1,5 +1,5 @@
 <?php
-
+// test 
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -10,7 +10,15 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Liste des utilisateurs
- * @ApiResource()
+ * @ApiResource(
+ *      normalizationContext={"groups"={"GetAllUsers"}},
+ *      collectionOperations={"get"},
+ * itemOperations={
+ *      "get"={
+ *          "normalization_context"={"groups"={"GetOneUser"}}
+ *   }
+ *  }
+ * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
  */
@@ -20,17 +28,20 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"GetAllUsers", "GetOneUser", "GetOneMentor", "GetAllMentors"})
      */
     private $id;
 
     /**
      * Email de l'utilisateur
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups({"GetAllUsers", "GetOneUser", "GetOneMentor"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups("GetOneUser")
      */
     private $roles = [];
 
@@ -43,76 +54,76 @@ class User implements UserInterface
     /**
      * Prénom de l'utilisateur
      * @ORM\Column(type="string", length=255)
-     * @Groups({"GetOneMentor", "GetAllMentors"})
+     * @Groups({"GetAllUsers", "GetOneUser", "GetOneMentor", "GetAllMentors"})
      */
     private $first_name;
 
     /**
      * Nom de l'utilisateur
      * @ORM\Column(type="string", length=255)
-     * @Groups({"GetOneMentor", "GetAllMentors"})
+     * @Groups({"GetAllUsers", "GetOneUser", "GetOneMentor", "GetAllMentors"})
      */
     private $last_name;
 
     /**
      * Téléphone de l'utilisateur
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetOneUser"})
      */
     private $phone;
 
     /**
      * Lien du profil github de l'utilisateur
      * @ORM\Column(type="string", length=255)
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetOneUser"})
      */
     private $github;
 
     /**
      * Lien du profil linkedin de l'utilisateur
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetOneUser"})
      */
     private $linkedin;
 
     /**
      * Lien du portfolio de l'utilisateur
      * @ORM\Column(type="string", length=512, nullable=true)
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetOneUser"})
      */
     private $portfolio;
 
     /**
      * Texte biographique de l'utilisateur
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"GetOneMentor", "GetAllMentors"})
+     * @Groups({"GetOneMentor", "GetAllUsers", "GetAllMentors"})
      */
     private $bio;
 
     /**
      * Lien de l'image de l'utilisateur
      * @ORM\Column(type="string", length=512, nullable=true)
-     * @Groups({"GetOneMentor", "GetAllMentors"})
+     * @Groups({"GetAllUsers", "GetOneUser", "GetOneMentor", "GetAllMentors"})
      */
     private $avatar;
 
     /**
      * Texte décrivant le parcours de l'utilisateur
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetOneUser"})
      */
     private $route;
 
     /**
      * Ouverture au reseaux sociaux (bool)
      * @ORM\Column(type="boolean")
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetOneUser"})
      */
     private $open_social;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetOneUser"})
      */
     private $createdAt;
 
@@ -123,8 +134,15 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToOne(targetEntity=Mentor::class, inversedBy="userId", cascade={"persist", "remove"})
+     * @Groups("GetOneUser")
      */
     private $mentor;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"GetAllUsers", "GetOneUser", "GetOneMentor", "GetAllMentors"})
+     */
+    private $job;
 
     public function getId(): ?int
     {
@@ -359,6 +377,18 @@ class User implements UserInterface
     public function setMentor(?Mentor $mentor): self
     {
         $this->mentor = $mentor;
+
+        return $this;
+    }
+
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    public function setJob(string $job): self
+    {
+        $this->job = $job;
 
         return $this;
     }
