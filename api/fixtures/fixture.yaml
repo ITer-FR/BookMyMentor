@@ -178,7 +178,7 @@ App\Entity\SoftSkill:
         createdAt: <dateTime()>
 
 App\Entity\User:
-    user_{1..9}:
+    user_{1..15}:
         email: <email()>
         roles: [ROLE_USER]
         password: test
@@ -189,14 +189,15 @@ App\Entity\User:
         linkedin: https://www.linkedin.com/company/iters-family/
         portfolio: ITers.io
         open_social: true
-        mentor: '@mentor*'
+        # mentor: '@mentor*'
+        job: <jobTitle()>
         createdAt: <dateTime()>
         bio: <text()>
         avatar: https://cdn4.iconfinder.com/data/icons/profession-avatar-5/64/29-programmer-512.png
         route: <text()>
 
 App\Entity\Mentor:
-    mentor_{1..10}:
+    mentor_{1..15}:
         createdAt: <dateTime()>
         why_help: <text()>
         why_mentor: <text()>
