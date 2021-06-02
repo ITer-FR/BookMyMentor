@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { useContext } from 'react';
 
 import Head from 'next/head';
@@ -8,6 +8,11 @@ import ToggleTheme from '../components/ToggleTheme';
 import { ThemeContext, THEMELIST, ThemeToggleProvider } from '../contexts/ThemeContext';
 import { lightTheme, darkTheme } from '../theme/appTheme';
 import GlobalStyle from '../theme/globalStyle';
+
+const Container = styled.div`
+  max-width: 140rem;
+  margin: 0 auto;
+`;
 
 const LayoutComponent = ({ children }) => {
   const state = useContext(ThemeContext);
@@ -20,7 +25,7 @@ const LayoutComponent = ({ children }) => {
         <GlobalStyle />
         <Header />
         <ToggleTheme />
-        {children}
+        <Container>{children}</Container>
       </ThemeProvider>
     </>
   );

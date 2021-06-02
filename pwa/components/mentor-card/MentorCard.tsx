@@ -32,7 +32,6 @@ const Item = styled.li`
     position: absolute;
     z-index: -1;
     background: ${({ theme }) => theme.colors.secondary};
-    height: 99.9%;
     width: 25rem;
     @media (min-width: 0px) and (max-width: 769px) {
       width: 100%;
@@ -45,6 +44,7 @@ const Item = styled.li`
 
   &:hover::before {
     transform: scale(1.01);
+    height: 99.9%;
   }
 `;
 
@@ -93,16 +93,10 @@ const Mentor: React.FC<MentorCardCollection> = ({
   soft_skills,
 }) => (
   <Item>
-    <Image
-      className="Mentor__image"
-      width="342px"
-      height="227px"
-      src={imageSource}
-      alt={`${name} mentor`}
-    />
-    <Name className="Mentor__name">{name}</Name>
-    <Job className="Mentor__job">{job}</Job>
-    <Description className="Mentor__text">{text}</Description>
+    <Image width="342px" height="227px" src={imageSource} alt={`${name} mentor`} />
+    <Name>{name}</Name>
+    <Job>{job}</Job>
+    <Description>{text}</Description>
     <MentorQuality quality={stack} typeOfQuality={`${'Stack Tech ' + '(' + stack.length + ')'}`} />
     <MentorQuality
       quality={soft_skills}
