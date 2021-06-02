@@ -68,16 +68,30 @@ const Name = styled.h2`
 const Job = styled.p`
   color: ${({ theme }) => theme.colors.secondary};
   font-style: italic;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 `;
 
 const Description = styled.p`
+  display: -webkit-box;
   font-style: italic;
   margin-bottom: 1.4rem;
   color: ${({ theme }) => theme.colors.primary};
+  height: 5.6rem;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
-const Mentor: React.FC<MentorCardCollection> = ({ imageSource, name, job, text, time }) => (
+const Mentor: React.FC<MentorCardCollection> = ({
+  imageSource,
+  name,
+  job,
+  text,
+  time,
+  stack,
+  soft_skills,
+}) => (
   <Item>
     <Image
       className="Mentor__image"
@@ -89,8 +103,11 @@ const Mentor: React.FC<MentorCardCollection> = ({ imageSource, name, job, text, 
     <Name className="Mentor__name">{name}</Name>
     <Job className="Mentor__job">{job}</Job>
     <Description className="Mentor__text">{text}</Description>
-    <MentorQuality quality={'Javascript - Php - Html'} typeOfQuality={'Stack Teck'} />
-    <MentorQuality quality={'Javascript - Php - Html'} typeOfQuality={'Soft skills'} />
+    <MentorQuality quality={stack} typeOfQuality={`${'Stack Tech ' + '(' + stack.length + ')'}`} />
+    <MentorQuality
+      quality={soft_skills}
+      typeOfQuality={`${'Soft skills ' + '(' + soft_skills.length + ')'}`}
+    />
     <MentorTime time={time} />
   </Item>
 );
