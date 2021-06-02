@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * Liste des utilisateurs
  * @ApiResource(
  *      normalizationContext={"groups"={"GetAllUsers"}},
- *      collectionOperations={"get"},
+ *      collectionOperations={"get", "POST"},
  * itemOperations={
  *      "get"={
  *          "normalization_context"={"groups"={"GetOneUser"}}
