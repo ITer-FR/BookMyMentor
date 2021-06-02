@@ -1,0 +1,2200 @@
+// 20210529223237
+// https://localhost/docs#/components/schemas/Target
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hello API Platform",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": ""
+    }
+  ],
+  "paths": {
+    "/durations": {
+      "get": {
+        "operationId": "getDurationCollection",
+        "tags": [
+          "Duration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Duration collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Duration"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Retrieves the collection of Duration resources.",
+        "description": "Retrieves the collection of Duration resources.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "style": "form"
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "operationId": "postDurationCollection",
+        "tags": [
+          "Duration"
+        ],
+        "responses": {
+          "201": {
+            "description": "Duration resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Duration"
+                }
+              }
+            },
+            "links": {
+              "GetDurationItem": {
+                "operationId": "getDurationItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /durations/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Creates a Duration resource.",
+        "description": "Creates a Duration resource.",
+        "parameters": [],
+        "requestBody": {
+          "description": "The new Duration resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Duration"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/durations/{id}": {
+      "get": {
+        "operationId": "getDurationItem",
+        "tags": [
+          "Duration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Duration resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Duration"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Duration resource.",
+        "description": "Retrieves a Duration resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "operationId": "putDurationItem",
+        "tags": [
+          "Duration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Duration resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Duration"
+                }
+              }
+            },
+            "links": {
+              "GetDurationItem": {
+                "operationId": "getDurationItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /durations/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Replaces the Duration resource.",
+        "description": "Replaces the Duration resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Duration resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Duration"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "operationId": "deleteDurationItem",
+        "tags": [
+          "Duration"
+        ],
+        "responses": {
+          "204": {
+            "description": "Duration resource deleted"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Removes the Duration resource.",
+        "description": "Removes the Duration resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "patch": {
+        "operationId": "patchDurationItem",
+        "tags": [
+          "Duration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Duration resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Duration"
+                }
+              }
+            },
+            "links": {
+              "GetDurationItem": {
+                "operationId": "getDurationItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /durations/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Updates the Duration resource.",
+        "description": "Updates the Duration resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Duration resource",
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Duration"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/formats": {
+      "get": {
+        "operationId": "getFormatCollection",
+        "tags": [
+          "Format"
+        ],
+        "responses": {
+          "200": {
+            "description": "Format collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Format"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Retrieves the collection of Format resources.",
+        "description": "Retrieves the collection of Format resources.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "style": "form"
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "operationId": "postFormatCollection",
+        "tags": [
+          "Format"
+        ],
+        "responses": {
+          "201": {
+            "description": "Format resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Format"
+                }
+              }
+            },
+            "links": {
+              "GetFormatItem": {
+                "operationId": "getFormatItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /formats/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Creates a Format resource.",
+        "description": "Creates a Format resource.",
+        "parameters": [],
+        "requestBody": {
+          "description": "The new Format resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Format"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/formats/{id}": {
+      "get": {
+        "operationId": "getFormatItem",
+        "tags": [
+          "Format"
+        ],
+        "responses": {
+          "200": {
+            "description": "Format resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Format"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Format resource.",
+        "description": "Retrieves a Format resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "operationId": "putFormatItem",
+        "tags": [
+          "Format"
+        ],
+        "responses": {
+          "200": {
+            "description": "Format resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Format"
+                }
+              }
+            },
+            "links": {
+              "GetFormatItem": {
+                "operationId": "getFormatItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /formats/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Replaces the Format resource.",
+        "description": "Replaces the Format resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Format resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Format"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "operationId": "deleteFormatItem",
+        "tags": [
+          "Format"
+        ],
+        "responses": {
+          "204": {
+            "description": "Format resource deleted"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Removes the Format resource.",
+        "description": "Removes the Format resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "patch": {
+        "operationId": "patchFormatItem",
+        "tags": [
+          "Format"
+        ],
+        "responses": {
+          "200": {
+            "description": "Format resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Format"
+                }
+              }
+            },
+            "links": {
+              "GetFormatItem": {
+                "operationId": "getFormatItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /formats/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Updates the Format resource.",
+        "description": "Updates the Format resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Format resource",
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Format"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/mentors": {
+      "get": {
+        "operationId": "getMentorCollection",
+        "tags": [
+          "Mentor"
+        ],
+        "responses": {
+          "200": {
+            "description": "Mentor collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Mentor-GetAllMentors"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Retrieves the collection of Mentor resources.",
+        "description": "Retrieves the collection of Mentor resources.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "style": "form"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/mentors/{id}": {
+      "get": {
+        "operationId": "getMentorItem",
+        "tags": [
+          "Mentor"
+        ],
+        "responses": {
+          "200": {
+            "description": "Mentor resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Mentor-GetOneMentor"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Mentor resource.",
+        "description": "Retrieves a Mentor resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/soft_skills": {
+      "get": {
+        "operationId": "getSoftSkillCollection",
+        "tags": [
+          "SoftSkill"
+        ],
+        "responses": {
+          "200": {
+            "description": "SoftSkill collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SoftSkill"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Retrieves the collection of SoftSkill resources.",
+        "description": "Retrieves the collection of SoftSkill resources.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "style": "form"
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "operationId": "postSoftSkillCollection",
+        "tags": [
+          "SoftSkill"
+        ],
+        "responses": {
+          "201": {
+            "description": "SoftSkill resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SoftSkill"
+                }
+              }
+            },
+            "links": {
+              "GetSoftSkillItem": {
+                "operationId": "getSoftSkillItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /soft_skills/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Creates a SoftSkill resource.",
+        "description": "Creates a SoftSkill resource.",
+        "parameters": [],
+        "requestBody": {
+          "description": "The new SoftSkill resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SoftSkill"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/soft_skills/{id}": {
+      "get": {
+        "operationId": "getSoftSkillItem",
+        "tags": [
+          "SoftSkill"
+        ],
+        "responses": {
+          "200": {
+            "description": "SoftSkill resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SoftSkill"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a SoftSkill resource.",
+        "description": "Retrieves a SoftSkill resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "operationId": "putSoftSkillItem",
+        "tags": [
+          "SoftSkill"
+        ],
+        "responses": {
+          "200": {
+            "description": "SoftSkill resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SoftSkill"
+                }
+              }
+            },
+            "links": {
+              "GetSoftSkillItem": {
+                "operationId": "getSoftSkillItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /soft_skills/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Replaces the SoftSkill resource.",
+        "description": "Replaces the SoftSkill resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated SoftSkill resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SoftSkill"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "operationId": "deleteSoftSkillItem",
+        "tags": [
+          "SoftSkill"
+        ],
+        "responses": {
+          "204": {
+            "description": "SoftSkill resource deleted"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Removes the SoftSkill resource.",
+        "description": "Removes the SoftSkill resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "patch": {
+        "operationId": "patchSoftSkillItem",
+        "tags": [
+          "SoftSkill"
+        ],
+        "responses": {
+          "200": {
+            "description": "SoftSkill resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SoftSkill"
+                }
+              }
+            },
+            "links": {
+              "GetSoftSkillItem": {
+                "operationId": "getSoftSkillItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /soft_skills/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Updates the SoftSkill resource.",
+        "description": "Updates the SoftSkill resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated SoftSkill resource",
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SoftSkill"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/stack_teches": {
+      "get": {
+        "operationId": "getStackTechCollection",
+        "tags": [
+          "StackTech"
+        ],
+        "responses": {
+          "200": {
+            "description": "StackTech collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StackTech"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Retrieves the collection of StackTech resources.",
+        "description": "Retrieves the collection of StackTech resources.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "style": "form"
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "operationId": "postStackTechCollection",
+        "tags": [
+          "StackTech"
+        ],
+        "responses": {
+          "201": {
+            "description": "StackTech resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTech"
+                }
+              }
+            },
+            "links": {
+              "GetStackTechItem": {
+                "operationId": "getStackTechItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /stack_teches/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Creates a StackTech resource.",
+        "description": "Creates a StackTech resource.",
+        "parameters": [],
+        "requestBody": {
+          "description": "The new StackTech resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StackTech"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/stack_teches/{id}": {
+      "get": {
+        "operationId": "getStackTechItem",
+        "tags": [
+          "StackTech"
+        ],
+        "responses": {
+          "200": {
+            "description": "StackTech resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTech"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a StackTech resource.",
+        "description": "Retrieves a StackTech resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "operationId": "putStackTechItem",
+        "tags": [
+          "StackTech"
+        ],
+        "responses": {
+          "200": {
+            "description": "StackTech resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTech"
+                }
+              }
+            },
+            "links": {
+              "GetStackTechItem": {
+                "operationId": "getStackTechItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /stack_teches/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Replaces the StackTech resource.",
+        "description": "Replaces the StackTech resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated StackTech resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StackTech"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "operationId": "deleteStackTechItem",
+        "tags": [
+          "StackTech"
+        ],
+        "responses": {
+          "204": {
+            "description": "StackTech resource deleted"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Removes the StackTech resource.",
+        "description": "Removes the StackTech resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "patch": {
+        "operationId": "patchStackTechItem",
+        "tags": [
+          "StackTech"
+        ],
+        "responses": {
+          "200": {
+            "description": "StackTech resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StackTech"
+                }
+              }
+            },
+            "links": {
+              "GetStackTechItem": {
+                "operationId": "getStackTechItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /stack_teches/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Updates the StackTech resource.",
+        "description": "Updates the StackTech resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated StackTech resource",
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StackTech"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/targets": {
+      "get": {
+        "operationId": "getTargetCollection",
+        "tags": [
+          "Target"
+        ],
+        "responses": {
+          "200": {
+            "description": "Target collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Target"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Retrieves the collection of Target resources.",
+        "description": "Retrieves the collection of Target resources.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "style": "form"
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "operationId": "postTargetCollection",
+        "tags": [
+          "Target"
+        ],
+        "responses": {
+          "201": {
+            "description": "Target resource created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Target"
+                }
+              }
+            },
+            "links": {
+              "GetTargetItem": {
+                "operationId": "getTargetItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /targets/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Creates a Target resource.",
+        "description": "Creates a Target resource.",
+        "parameters": [],
+        "requestBody": {
+          "description": "The new Target resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Target"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/targets/{id}": {
+      "get": {
+        "operationId": "getTargetItem",
+        "tags": [
+          "Target"
+        ],
+        "responses": {
+          "200": {
+            "description": "Target resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Target"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a Target resource.",
+        "description": "Retrieves a Target resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "operationId": "putTargetItem",
+        "tags": [
+          "Target"
+        ],
+        "responses": {
+          "200": {
+            "description": "Target resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Target"
+                }
+              }
+            },
+            "links": {
+              "GetTargetItem": {
+                "operationId": "getTargetItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /targets/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Replaces the Target resource.",
+        "description": "Replaces the Target resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Target resource",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Target"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "operationId": "deleteTargetItem",
+        "tags": [
+          "Target"
+        ],
+        "responses": {
+          "204": {
+            "description": "Target resource deleted"
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Removes the Target resource.",
+        "description": "Removes the Target resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "patch": {
+        "operationId": "patchTargetItem",
+        "tags": [
+          "Target"
+        ],
+        "responses": {
+          "200": {
+            "description": "Target resource updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Target"
+                }
+              }
+            },
+            "links": {
+              "GetTargetItem": {
+                "operationId": "getTargetItem",
+                "parameters": {
+                  "id": "$response.body#/id"
+                },
+                "requestBody": [],
+                "description": "The `id` value returned in the response can be used as the `id` parameter in `GET /targets/{id}`."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "422": {
+            "description": "Unprocessable entity"
+          }
+        },
+        "summary": "Updates the Target resource.",
+        "description": "Updates the Target resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Target resource",
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Target"
+              }
+            }
+          },
+          "required": true
+        },
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/users": {
+      "get": {
+        "operationId": "getUserCollection",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "User collection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User-GetAllUsers"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Retrieves the collection of User resources.",
+        "description": "Retrieves the collection of User resources.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            },
+            "style": "form"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": []
+    },
+    "/users/{id}": {
+      "get": {
+        "operationId": "getUserItem",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "User resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User-GetOneUser"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          }
+        },
+        "summary": "Retrieves a User resource.",
+        "description": "Retrieves a User resource.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Resource identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "deprecated": false
+      },
+      "parameters": []
+    }
+  },
+  "components": {
+    "schemas": {
+      "Duration": {
+        "type": "object",
+        "description": "Liste des durées de mentoring possbile (Court terme- Moyen terme - Long terme)",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "time": {
+            "description": "Nom de la durée",
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mentors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "iri-reference"
+            }
+          }
+        }
+      },
+      "Duration-GetAllMentors": {
+        "type": "object",
+        "description": "Liste des durées de mentoring possbile (Court terme- Moyen terme - Long terme)",
+        "properties": {
+          "time": {
+            "description": "Nom de la durée",
+            "type": "string"
+          }
+        }
+      },
+      "Duration-GetOneMentor": {
+        "type": "object",
+        "description": "Liste des durées de mentoring possbile (Court terme- Moyen terme - Long terme)",
+        "properties": {
+          "time": {
+            "description": "Nom de la durée",
+            "type": "string"
+          }
+        }
+      },
+      "Format": {
+        "type": "object",
+        "description": "Liste des formats de mentoring possibles (ex : visio - pairprogramming ...)",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "description": "Nom du format",
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mentors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "iri-reference"
+            }
+          }
+        }
+      },
+      "Format-GetOneMentor": {
+        "type": "object",
+        "description": "Liste des formats de mentoring possibles (ex : visio - pairprogramming ...)",
+        "properties": {
+          "name": {
+            "description": "Nom du format",
+            "type": "string"
+          }
+        }
+      },
+      "Mentor-GetAllMentors": {
+        "type": "object",
+        "description": "Liste des mentors",
+        "properties": {
+          "why_help": {
+            "readOnly": true,
+            "description": "Représente : Pourquoi souhaites-tu aider ?",
+            "type": "string",
+            "nullable": true
+          },
+          "why_mentor": {
+            "readOnly": true,
+            "description": "Représente : Que signifie, pour toi, être mentor ?",
+            "type": "string",
+            "nullable": true
+          },
+          "soft_skills": {
+            "readOnly": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SoftSkill-GetAllMentors"
+            }
+          },
+          "stack_techs": {
+            "readOnly": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StackTech-GetAllMentors"
+            }
+          },
+          "durations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Duration-GetAllMentors"
+            }
+          },
+          "userId": {
+            "nullable": true,
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/User-GetAllMentors"
+              }
+            ]
+          }
+        }
+      },
+      "Mentor-GetOneMentor": {
+        "type": "object",
+        "description": "Liste des mentors",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "why_help": {
+            "readOnly": true,
+            "description": "Représente : Pourquoi souhaites-tu aider ?",
+            "type": "string",
+            "nullable": true
+          },
+          "why_mentor": {
+            "readOnly": true,
+            "description": "Représente : Que signifie, pour toi, être mentor ?",
+            "type": "string",
+            "nullable": true
+          },
+          "soft_skills": {
+            "readOnly": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SoftSkill-GetOneMentor"
+            }
+          },
+          "stack_techs": {
+            "readOnly": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StackTech-GetOneMentor"
+            }
+          },
+          "durations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Duration-GetOneMentor"
+            }
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Target-GetOneMentor"
+            }
+          },
+          "formats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Format-GetOneMentor"
+            }
+          },
+          "userId": {
+            "nullable": true,
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/User-GetOneMentor"
+              }
+            ]
+          }
+        }
+      },
+      "SoftSkill": {
+        "type": "object",
+        "description": "Liste des compétences générales",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "description": "Nom de la compétence",
+            "type": "string"
+          },
+          "mentors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "iri-reference"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "SoftSkill-GetAllMentors": {
+        "type": "object",
+        "description": "Liste des compétences générales",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "description": "Nom de la compétence",
+            "type": "string"
+          }
+        }
+      },
+      "SoftSkill-GetOneMentor": {
+        "type": "object",
+        "description": "Liste des compétences générales",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "description": "Nom de la compétence",
+            "type": "string"
+          }
+        }
+      },
+      "StackTech": {
+        "type": "object",
+        "description": "Liste des compétences techniques (ex : javascript - php ...)",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "description": "Nom de la compétence",
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mentors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "iri-reference"
+            }
+          }
+        }
+      },
+      "StackTech-GetAllMentors": {
+        "type": "object",
+        "description": "Liste des compétences techniques (ex : javascript - php ...)",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "description": "Nom de la compétence",
+            "type": "string"
+          }
+        }
+      },
+      "StackTech-GetOneMentor": {
+        "type": "object",
+        "description": "Liste des compétences techniques (ex : javascript - php ...)",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "description": "Nom de la compétence",
+            "type": "string"
+          }
+        }
+      },
+      "Target": {
+        "type": "object",
+        "description": "Liste des cibles possible pour le mentor (ex: junior - reconverti...)",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "mentors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "iri-reference"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "Target-GetOneMentor": {
+        "type": "object",
+        "description": "Liste des cibles possible pour le mentor (ex: junior - reconverti...)",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "User-GetAllMentors": {
+        "type": "object",
+        "description": "Liste des utilisateurs",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "first_name": {
+            "readOnly": true,
+            "description": "Prénom de l'utilisateur",
+            "type": "string"
+          },
+          "last_name": {
+            "readOnly": true,
+            "description": "Nom de l'utilisateur",
+            "type": "string"
+          },
+          "bio": {
+            "description": "Texte biographique de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "description": "Lien de l'image de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "job": {
+            "type": "string"
+          }
+        }
+      },
+      "User-GetAllUsers": {
+        "type": "object",
+        "description": "Liste des utilisateurs",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "email": {
+            "description": "Email de l'utilisateur",
+            "type": "string"
+          },
+          "first_name": {
+            "readOnly": true,
+            "description": "Prénom de l'utilisateur",
+            "type": "string"
+          },
+          "last_name": {
+            "readOnly": true,
+            "description": "Nom de l'utilisateur",
+            "type": "string"
+          },
+          "bio": {
+            "description": "Texte biographique de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "description": "Lien de l'image de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "job": {
+            "type": "string"
+          }
+        }
+      },
+      "User-GetOneMentor": {
+        "type": "object",
+        "description": "Liste des utilisateurs",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "email": {
+            "description": "Email de l'utilisateur",
+            "type": "string"
+          },
+          "first_name": {
+            "readOnly": true,
+            "description": "Prénom de l'utilisateur",
+            "type": "string"
+          },
+          "last_name": {
+            "readOnly": true,
+            "description": "Nom de l'utilisateur",
+            "type": "string"
+          },
+          "phone": {
+            "description": "Téléphone de l'utilisateur",
+            "type": "integer",
+            "nullable": true
+          },
+          "github": {
+            "description": "Lien du profil github de l'utilisateur",
+            "type": "string"
+          },
+          "linkedin": {
+            "description": "Lien du profil linkedin de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "portfolio": {
+            "description": "Lien du portfolio de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
+            "description": "Texte biographique de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "description": "Lien de l'image de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "route": {
+            "description": "Texte décrivant le parcours de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "open_social": {
+            "readOnly": true,
+            "description": "Ouverture au reseaux sociaux (bool)",
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "job": {
+            "type": "string"
+          }
+        }
+      },
+      "User-GetOneUser": {
+        "type": "object",
+        "description": "Liste des utilisateurs",
+        "properties": {
+          "id": {
+            "readOnly": true,
+            "type": "integer"
+          },
+          "email": {
+            "description": "Email de l'utilisateur",
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "first_name": {
+            "readOnly": true,
+            "description": "Prénom de l'utilisateur",
+            "type": "string"
+          },
+          "last_name": {
+            "readOnly": true,
+            "description": "Nom de l'utilisateur",
+            "type": "string"
+          },
+          "phone": {
+            "description": "Téléphone de l'utilisateur",
+            "type": "integer",
+            "nullable": true
+          },
+          "github": {
+            "description": "Lien du profil github de l'utilisateur",
+            "type": "string"
+          },
+          "linkedin": {
+            "description": "Lien du profil linkedin de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "portfolio": {
+            "description": "Lien du portfolio de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "description": "Lien de l'image de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "route": {
+            "description": "Texte décrivant le parcours de l'utilisateur",
+            "type": "string",
+            "nullable": true
+          },
+          "open_social": {
+            "readOnly": true,
+            "description": "Ouverture au reseaux sociaux (bool)",
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "mentor": {
+            "type": "string",
+            "format": "iri-reference",
+            "nullable": true
+          },
+          "job": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {},
+    "parameters": {},
+    "examples": {},
+    "requestBodies": {},
+    "headers": {},
+    "securitySchemes": {}
+  },
+  "security": [],
+  "tags": []
+}

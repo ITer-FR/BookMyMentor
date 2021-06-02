@@ -30,7 +30,7 @@ class Mentor
      * @ORM\Column(type="integer")
      */
     private $id;
-    
+
     /**
      * @ORM\Column(type="datetime")
      * @Groups({"GetOneMentor"})
@@ -52,7 +52,7 @@ class Mentor
     /**
      * Représente : Que signifie, pour toi, être mentor ?
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"GetOneMentor"})
+     * @Groups({"GetOneMentor", "GetAllMentors"})
      */
     private $why_mentor;
 
