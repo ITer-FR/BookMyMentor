@@ -1,10 +1,19 @@
 import styled from 'styled-components';
-import MentorTime from '../mentor-card/MentorTime';
+import MentorTime from '../MentorTime';
+import MentorExplaination from './MentorExplaination';
+import MentorHelpFor from './MentorHelpFor';
+import MentorContact from './MentorContact';
+import MentorExecution from './MentorExecution';
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 25px auto 25px;
   grid-template-rows: 3.5rem 1.9rem 25rem 7rem 8rem auto auto auto 6rem;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 270px auto;
+    grid-template-rows: 70px 50px 140px 100px 70px 100px auto auto;
+    margin: 10rem 0;
+  }
 `;
 
 const Background = styled.div`
@@ -14,11 +23,17 @@ const Background = styled.div`
   box-shadow: 0px 19px 20px -10px rgba(0, 0, 0, 0.25);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  @media screen and (min-width: 768px) {
+    grid-area: 1 / 1 / 9 / 3;
+  }
 `;
 
 const MentorTimeWrapper = styled.div`
   grid-area: 4 / 2 / 5 / 3;
   align-self: center;
+  @media screen and (min-width: 768px) {
+    grid-area: 5 / 1 / 6 / 2;
+  }
 `;
 
 const Name = styled.span`
@@ -27,6 +42,17 @@ const Name = styled.span`
   font-weight: 400;
   text-align: center;
   grid-area: 1 / 1 / 2 / 4;
+  justify-self: center;
+  @media screen and (min-width: 768px) {
+    grid-area: 1 / 2 / 2 / 3;
+    height: 7rem;
+    font-size: 6rem;
+    width: fit-content;
+    border-radius: 50px;
+    padding: 1rem;
+    background-color: white;
+    margin-top: -30px;
+  }
 `;
 
 const Job = styled.span`
@@ -34,108 +60,19 @@ const Job = styled.span`
   font-style: italic;
   text-align: center;
   grid-area: 2 / 1 / 3 / 4;
+  @media screen and (min-width: 768px) {
+    grid-area: 2 / 2 / 3 / 3;
+    font-size: 3rem;
+  }
 `;
+
 const Image = styled.img`
   width: 100%;
   height: 100%;
   grid-area: 3 / 1 / 4 / 4;
-`;
-
-const Conduct = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  grid-area: 5 / 2 / 6 / 3;
-  padding: 0 1rem;
-`;
-const ConductTitle = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: 2rem;
-  font-weight: 700;
-`;
-const Logo = styled.div``;
-
-const ExplainationWrapper = styled.div`
-  grid-area: 6 / 2 / 7 / 3;
-  padding: 0 1rem;
-`;
-
-const Explaination = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ExplainationTitle = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-  font-weight: 700;
-  flex: 100%;
-`;
-
-const ExplainationText = styled.p`
-  color: ${({ theme }) => theme.colors.primary};
-`;
-const SvgDivider = styled.svg`
-  max-width: 50%;
-  height: 2rem;
-  flex: 100%;
-  margin: 2rem auto;
-`;
-
-const HelpFor = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  grid-area: 7 / 2 / 8 / 3;
-  padding: 0 1rem;
-`;
-
-const HelpForTitle = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-  font-weight: 700;
-  font-size: 2rem;
-  flex: 100%;
-  padding: 1rem 0;
-`;
-
-const HelpForSkillSvgWrapper = styled.div`
-  width: 100%;
-  display: flex;
-`;
-
-const HelpForSkill = styled.span`
-  align-items: center;
-  background: ${({ theme }) => theme.colors.primary};
-  border-radius: 4px;
-  color: ${({ theme }) => theme.colors.quaternary};
-  display: flex;
-  font-size: 1.2rem;
-  font-weight: 700;
-  height: 3.6rem;
-  justify-content: center;
-  padding: 0.7rem;
-`;
-
-const Contact = styled.div`
-  display: flex;
-  flex-direction: column;
-  grid-area: 8 / 2 / 9 / 3;
-  padding-bottom: 2rem;
-`;
-
-const ContactTitle = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-  flex: 100%;
-  font-size: 3rem;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 2rem;
-`;
-
-const ContactItem = styled.span`
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-left: 4rem;
-  color: ${({ theme }) => theme.colors.primary};
+  @media screen and (min-width: 768px) {
+    grid-area: 1 / 1 / 4 / 2;
+  }
 `;
 
 const MentorProfil = () => (
@@ -147,95 +84,10 @@ const MentorProfil = () => (
     <MentorTimeWrapper>
       <MentorTime time="long time" />
     </MentorTimeWrapper>
-    <Conduct>
-      <ConductTitle>Son mentorat peut se dérouler</ConductTitle>
-      <Logo>lol</Logo>
-    </Conduct>
-    <ExplainationWrapper>
-      <Explaination>
-        <ExplainationTitle>Présente toi en quelques mots ?</ExplainationTitle>
-        <ExplainationText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore veritatis culpa hic?
-          Quisquam animi, error quis sed facere dolor, asperiores accusantium culpa, aperiam
-          eligendi quibusdam delectus aspernatur tempora commodi?
-        </ExplainationText>
-        <SvgDivider
-          width="743"
-          height="20"
-          viewBox="0 0 743 5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-        </SvgDivider>
-      </Explaination>
-      <Explaination>
-        <ExplainationTitle>Présente toi en quelques mots ?</ExplainationTitle>
-        <ExplainationText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore veritatis culpa hic?
-          Quisquam animi, error quis sed facere dolor, asperiores accusantium culpa, aperiam
-          eligendi quibusdam delectus aspernatur tempora commodi?
-        </ExplainationText>
-        <SvgDivider
-          width="743"
-          height="20"
-          viewBox="0 0 743 5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-        </SvgDivider>
-      </Explaination>
-      <Explaination>
-        <ExplainationTitle>Présente toi en quelques mots ?</ExplainationTitle>
-        <ExplainationText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore veritatis culpa hic?
-          Quisquam animi, error quis sed facere dolor, asperiores accusantium culpa, aperiam
-          eligendi quibusdam delectus aspernatur tempora commodi?
-        </ExplainationText>
-        <SvgDivider
-          width="743"
-          height="20"
-          viewBox="0 0 743 5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-        </SvgDivider>
-      </Explaination>
-      <Explaination>
-        <ExplainationTitle>Présente toi en quelques mots ?</ExplainationTitle>
-        <ExplainationText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempore veritatis culpa hic?
-          Quisquam animi, error quis sed facere dolor, asperiores accusantium culpa, aperiam
-          eligendi quibusdam delectus aspernatur tempora commodi?
-        </ExplainationText>
-      </Explaination>
-    </ExplainationWrapper>
-    <HelpFor>
-      <HelpForTitle>John Doe peut vous aider pour :</HelpForTitle>
-      <HelpForSkill>Entretien</HelpForSkill>
-      <HelpForSkillSvgWrapper>
-        <SvgDivider width="743" viewBox="0 0 743 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-          <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-        </SvgDivider>
-      </HelpForSkillSvgWrapper>
-    </HelpFor>
-
-    <Contact>
-      <ContactTitle>Contact</ContactTitle>
-      <ContactItem>Linkedin: ajopaofapo.fr</ContactItem>
-      <ContactItem>Linkedin: ajopaofapo.fr</ContactItem>
-      <ContactItem>Linkedin: ajopaofapo.fr</ContactItem>
-    </Contact>
+    <MentorExecution />
+    <MentorExplaination />
+    <MentorHelpFor />
+    <MentorContact />
   </Container>
 );
 

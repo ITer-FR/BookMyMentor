@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { MentorCardCollection } from '../../types/Collection';
 import MentorQuality from './MentorQuality';
-import MentorTime from './MentorTime';
+import MentorTime from '../MentorTime';
 
 const Item = styled.li`
   background-color: ${({ theme }) => theme.colors.quaternary};
