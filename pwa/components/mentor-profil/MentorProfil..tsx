@@ -47,8 +47,8 @@ const Conduct = styled.div`
   flex-direction: column;
   justify-content: center;
   grid-area: 5 / 2 / 6 / 3;
+  padding: 0 1rem;
 `;
-
 const ConductTitle = styled.span`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 2rem;
@@ -61,7 +61,10 @@ const ExplainationWrapper = styled.div`
   padding: 0 1rem;
 `;
 
-const Explaination = styled.div``;
+const Explaination = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const ExplainationTitle = styled.span`
   color: ${({ theme }) => theme.colors.primary};
@@ -73,10 +76,10 @@ const ExplainationText = styled.p`
   color: ${({ theme }) => theme.colors.primary};
 `;
 const SvgDivider = styled.svg`
-  max-width: 20rem;
+  max-width: 50%;
   height: 2rem;
   flex: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
 `;
 
 const HelpFor = styled.div`
@@ -92,6 +95,11 @@ const HelpForTitle = styled.span`
   font-size: 2rem;
   flex: 100%;
   padding: 1rem 0;
+`;
+
+const HelpForSkillSvgWrapper = styled.div`
+  width: 100%;
+  display: flex;
 `;
 
 const HelpForSkill = styled.span`
@@ -111,6 +119,7 @@ const Contact = styled.div`
   display: flex;
   flex-direction: column;
   grid-area: 8 / 2 / 9 / 3;
+  padding-bottom: 2rem;
 `;
 
 const ContactTitle = styled.span`
@@ -126,6 +135,7 @@ const ContactItem = styled.span`
   font-size: 1.4rem;
   font-weight: 700;
   margin-left: 4rem;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const MentorProfil = () => (
@@ -149,7 +159,13 @@ const MentorProfil = () => (
           Quisquam animi, error quis sed facere dolor, asperiores accusantium culpa, aperiam
           eligendi quibusdam delectus aspernatur tempora commodi?
         </ExplainationText>
-        <SvgDivider width="743" viewBox="0 0 743 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <SvgDivider
+          width="743"
+          height="20"
+          viewBox="0 0 743 5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
           <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
           <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
@@ -162,7 +178,13 @@ const MentorProfil = () => (
           Quisquam animi, error quis sed facere dolor, asperiores accusantium culpa, aperiam
           eligendi quibusdam delectus aspernatur tempora commodi?
         </ExplainationText>
-        <SvgDivider width="743" viewBox="0 0 743 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <SvgDivider
+          width="743"
+          height="20"
+          viewBox="0 0 743 5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
           <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
           <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
@@ -175,7 +197,13 @@ const MentorProfil = () => (
           Quisquam animi, error quis sed facere dolor, asperiores accusantium culpa, aperiam
           eligendi quibusdam delectus aspernatur tempora commodi?
         </ExplainationText>
-        <SvgDivider width="743" viewBox="0 0 743 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <SvgDivider
+          width="743"
+          height="20"
+          viewBox="0 0 743 5"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
           <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
           <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
@@ -193,11 +221,13 @@ const MentorProfil = () => (
     <HelpFor>
       <HelpForTitle>John Doe peut vous aider pour :</HelpForTitle>
       <HelpForSkill>Entretien</HelpForSkill>
-      <SvgDivider width="743" viewBox="0 0 743 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
-        <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-        <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
-      </SvgDivider>
+      <HelpForSkillSvgWrapper>
+        <SvgDivider width="743" viewBox="0 0 743 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="224.145" height="10" rx="2.5" fill="#E31B84" />
+          <rect x="257.352" width="224.145" height="10" rx="2.5" fill="#E31B84" />
+          <rect x="518.855" width="224.145" height="10" rx="2.5" fill="#E31B84" />
+        </SvgDivider>
+      </HelpForSkillSvgWrapper>
     </HelpFor>
 
     <Contact>
